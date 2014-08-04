@@ -1,0 +1,26 @@
+<?php echo "<?php\n";?>
+namespace Training\modelEntity;
+
+class <?php echo underscore2CC($tableName); ?>ModelEntity extends \Training\Components\TrainingActiveRecordModel 
+{
+
+    public function rules()
+    {
+        return array(array(implode(',',$this->attributeNames()),'match','pattern'=>'/(.*)/'));
+    }
+
+    public function getTableName()
+    {
+        return '<?php echo $tableName; ?>';
+    }
+
+    public function attributeNames()
+    {
+        return array(
+    <?php foreach ($tableData['columns'] as $column) : ?>
+        '<?= $column['name'] ?>',
+    <?php endforeach; ?>
+    );
+    }
+
+} 

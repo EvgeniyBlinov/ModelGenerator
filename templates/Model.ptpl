@@ -1,0 +1,20 @@
+<?php echo "<?php\n";?>
+namespace Training\Models;
+
+use Training\modelEntity\<?php echo underscore2CC($tableName); ?>ModelEntity;
+
+class <?php echo underscore2CC($tableName); ?>Model extends <?php echo underscore2CC($tableName); ?>ModelEntity 
+{
+
+    public static function model($options = null,$className=__CLASS__)
+    {
+        return parent::model($options, $className);
+    }
+
+
+    public function rules()
+    {
+        return array();
+    }
+
+}
